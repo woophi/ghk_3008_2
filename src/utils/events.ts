@@ -3,7 +3,7 @@ declare global {
     dataLayer: unknown[];
   }
 }
-export const sendDataToGA = async (item: string) => {
+export const sendDataToGA = async (choice: string) => {
   try {
     const now = new Date();
     const date = `${now.getFullYear()}-${
@@ -11,11 +11,11 @@ export const sendDataToGA = async (item: string) => {
     }-${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
 
     await fetch(
-      'https://script.google.com/macros/s/AKfycbxrAyYoX4OhNQkTHNY-58kSnJmJM4uaO6jmiycC1-8MEZBzTLl8OjZ6xv_cus8zItP8oA/exec',
+      'https://script.google.com/macros/s/AKfycbx5qS026IyZtWfcQIFKLLciT9548nQlzLmxbpqemWemC2grXEWrNp-_ucwsbDBZg6JYWQ/exec',
       {
         redirect: 'follow',
         method: 'POST',
-        body: JSON.stringify({ date, button: item, variant: 'variant_1' }),
+        body: JSON.stringify({ date, choice, variant: '3008_2' }),
         headers: {
           'Content-Type': 'text/plain;charset=utf-8',
         },

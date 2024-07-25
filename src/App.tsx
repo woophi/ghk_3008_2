@@ -19,6 +19,7 @@ import { BoxItem } from './BoxItem';
 import { LS, LSKeys } from './ls';
 import { appSt } from './style.css';
 import { ThxLayout } from './thx/ThxLayout';
+import { sendDataToGA } from './utils/events';
 
 const data: { title: string; img: string; imgStyle?: CSSProperties }[] = [
   {
@@ -59,7 +60,7 @@ const data: { title: string; img: string; imgStyle?: CSSProperties }[] = [
     img: p7,
   },
   {
-    title: 'Кешбек',
+    title: 'Кэшбэк',
     img: p8,
   },
   {
@@ -99,14 +100,18 @@ export const App = () => {
       return;
     }
     setLoading(true);
-    // LS.setItem(LSKeys.ShowThx, true);
-    setThx(true);
-    setLoading(false);
-    // sendDataToGA(checkedBox).then(() => {
-    //   LS.setItem(LSKeys.ShowThx, true);
-    //   setLoading(false);
-    //   setThx(true);
-    // });
+    const choice = selectedItems
+      .map(i => {
+        const [name, index] = i.split('_');
+
+        return Number(index) === 0 ? `${name} 1` : Number(index) === 5 ? `${name} 2` : name;
+      })
+      .join(', ');
+    sendDataToGA(choice).then(() => {
+      LS.setItem(LSKeys.ShowThx, true);
+      setThx(true);
+      setLoading(false);
+    });
   }, [selectedItems]);
 
   if (thxShow) {
