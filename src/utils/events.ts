@@ -11,7 +11,7 @@ export const sendDataToGA = async (choice: string) => {
     }-${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
 
     await fetch(
-      'https://script.google.com/macros/s/AKfycbx5qS026IyZtWfcQIFKLLciT9548nQlzLmxbpqemWemC2grXEWrNp-_ucwsbDBZg6JYWQ/exec',
+      'https://script.google.com/macros/s/AKfycbwKtbBjEDbMIJZERx6_HnU2W3V7vqrZafAuPjaFgdHrc24CvupKw0mQFTH1HrYJO3qOCQ/exec',
       {
         redirect: 'follow',
         method: 'POST',

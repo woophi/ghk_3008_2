@@ -1,8 +1,6 @@
-import { ButtonMobile } from '@alfalab/core-components/button/mobile';
 import { Gap } from '@alfalab/core-components/gap';
 import { Typography } from '@alfalab/core-components/typography';
 import party from '../assets/party.png';
-import { appSt } from '../style.css';
 import { thxSt } from './style.css';
 
 export const ThxLayout = () => {
@@ -18,11 +16,6 @@ export const ThxLayout = () => {
         </Typography.TitleResponsive>
       </div>
       <Gap size={128} />
-      <div className={appSt.bottomBtn}>
-        <ButtonMobile block view="primary" href="alfabank://user_profile">
-          Закрыть
-        </ButtonMobile>
-      </div>
     </>
   );
 };
